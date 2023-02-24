@@ -682,9 +682,10 @@ Timeline
 	width: 80vw;
 	max-width: 40rem;
 }
+
 .timeline-item {
-	border-top: 2px dashed var(--clr-primary-5);
-	border-top-left-radius: var(--radius);
+	/* border-top: 2px dashed var(--clr-primary-5); */
+	/* commented out to apply the alternative seen further down */
 	margin: 0;
 	padding: 4rem 2rem;
 	position: relative;
@@ -692,7 +693,7 @@ Timeline
 .timeline p {
 	margin-bottom: 0;
 }
-.timeline-item:nth-child(even) {
+/* .timeline-item:nth-child(even) {
 	border-left: 2px dashed var(--clr-primary-5);
 	border-top-left-radius: 2rem;
 	border-bottom-left-radius: 2rem;
@@ -712,7 +713,42 @@ Timeline
 }
 .timeline-item:last-child {
 	border-bottom-right-radius: 0;
+} */
+/* Alternative (read below): */
+.timeline-item:nth-child(odd)::before {
+	position: absolute;
+	top: -2px;
+	right: 0;
+	content: "";
+	height: 102%;
+	width: 50%;
+	border: 2px dashed var(--clr-primary-5);
+	border-left: none;
+	border-top-right-radius: 2rem;
+	border-bottom-right-radius: 2rem;
 }
+
+.timeline-item:nth-child(even)::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	content: "";
+	height: 100%;
+	width: 50%;
+	border: 2px dashed var(--clr-primary-5);
+	border-right: none;
+	border-top-left-radius: 2rem;
+	border-bottom-left-radius: 2rem;
+}
+.timeline-item:first-child::before {
+	border-top: none;
+	border-top-right-radius: 0;
+}
+.timeline-item:last-child::before {
+	border-bottom: none;
+	border-bottom-right-radius: 0;
+}
+/* Very ingenuous alternative found by fellow student Benedict. */
 .number {
 	position: absolute;
 	top: 50%;
