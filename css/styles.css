@@ -877,6 +877,7 @@ Single Page
 }
 .page-info {
 	max-width: 700px;
+	text-align: center;
 }
 .page-info a {
 	text-transform: uppercase;
@@ -885,6 +886,14 @@ Single Page
 }
 .page-info a:hover {
 	color: var(--clr-primary-1);
+}
+.contact-img {
+	height: 50%;
+	width: 50%;
+	transform: translateX(50%);
+}
+.info-img {
+	border-radius: var(--radius);
 }
 /*
 =============== 
